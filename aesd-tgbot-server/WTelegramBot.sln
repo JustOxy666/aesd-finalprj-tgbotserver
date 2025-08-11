@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aesd-tgbot-server", "aesd-tgbot-server.csproj", "{1D2C245C-21DE-450B-9B2E-2E541A2B746A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1237F115-59C4-4085-B724-F4B512B39ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1237F115-59C4-4085-B724-F4B512B39ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1237F115-59C4-4085-B724-F4B512B39ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1237F115-59C4-4085-B724-F4B512B39ADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D2C245C-21DE-450B-9B2E-2E541A2B746A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D2C245C-21DE-450B-9B2E-2E541A2B746A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D2C245C-21DE-450B-9B2E-2E541A2B746A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D2C245C-21DE-450B-9B2E-2E541A2B746A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E0CD176-0F53-4816-A223-B779B9EF9660}
+	EndGlobalSection
+EndGlobal

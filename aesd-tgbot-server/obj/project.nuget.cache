@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "/dhY+pVcZ0U=",
+  "success": true,
+  "projectFilePath": "Z:\\Work\\coursera\\final-project\\aesd-finalprj-tgbotserver\\aesd-tgbot-server\\aesd-tgbot-server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\JustOxy\\.nuget\\packages\\sourcegear.sqlite3\\3.50.3\\sourcegear.sqlite3.3.50.3.nupkg.sha512",
+    "C:\\Users\\JustOxy\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\3.0.1\\sqlitepclraw.bundle_e_sqlite3.3.0.1.nupkg.sha512",
+    "C:\\Users\\JustOxy\\.nuget\\packages\\sqlitepclraw.config.e_sqlite3\\3.0.1\\sqlitepclraw.config.e_sqlite3.3.0.1.nupkg.sha512",
+    "C:\\Users\\JustOxy\\.nuget\\packages\\sqlitepclraw.core\\3.0.1\\sqlitepclraw.core.3.0.1.nupkg.sha512",
+    "C:\\Users\\JustOxy\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\3.0.1\\sqlitepclraw.provider.e_sqlite3.3.0.1.nupkg.sha512",
+    "C:\\Users\\JustOxy\\.nuget\\packages\\system.memory\\4.6.3\\system.memory.4.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}

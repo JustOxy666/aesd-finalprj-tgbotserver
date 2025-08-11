@@ -1,0 +1,75 @@
+﻿2025-08-12 00:54:14 [D] WTelegramBot 9.0.2+3ddac3912f8f37a88635e4a74e959608cfe98ba4 using SqliteConnection WTelegramBot.sqlite
+2025-08-12 00:54:14 [D] WTelegramClient 4.3.6+4f7954db6153eae5ead0b547df140c9bae9579a9 running under .NET 8.0.19
+2025-08-12 00:54:14 [I] Connecting to 149.154.167.50:443...
+2025-08-12 00:54:14 [D] Loaded a public key with fingerprint D09D1D85DE64FD85
+2025-08-12 00:54:14 [D] Loaded a public key with fingerprint B25898DF208D2603
+2025-08-12 00:54:14 [D] 0>Sending   ReqPqMulti...
+2025-08-12 00:54:14 [D] 0>Receiving ResPQ                                    2025-08-11 21:54:15Z clear
+2025-08-12 00:54:14 [I] Selected public key with fingerprint D09D1D85DE64FD85
+2025-08-12 00:54:14 [D] 0>Sending   ReqDHParams...
+2025-08-12 00:54:15 [D] 0>Receiving ServerDHParamsOk                         2025-08-11 21:54:15Z clear
+2025-08-12 00:54:15 [I] Verifying encryption key safety... (this should happen only once per DC)
+2025-08-12 00:54:15 [D] Time offset: -3769978 | Server: 21:54:15 UTC | Local: 21:54:15.3769978 UTC
+2025-08-12 00:54:15 [D] 0>Sending   SetClientDHParams...
+2025-08-12 00:54:15 [D] 0>Receiving DhGenOk                                  2025-08-11 21:54:16Z clear
+2025-08-12 00:54:15 [D] 0>Sending   InvokeWithLayer`1                        #0987
+2025-08-12 00:54:15 [D] 0>Receiving MsgContainer                             2025-08-11 21:54:16Z (svc)
+2025-08-12 00:54:15 [D]              → NewSessionCreated                      2025-08-11 21:54:15Z  
+2025-08-12 00:54:15 [D]              → MsgsAck                                2025-08-11 21:54:15Z (svc) 
+2025-08-12 00:54:15 [D] 0>Receiving RpcResult                                2025-08-11 21:54:15Z
+2025-08-12 00:54:15 [D]              → Config                                #0987
+2025-08-12 00:54:16 [I] Connected to DC 2... default_p2p_contacts, revoke_pm_inbox
+2025-08-12 00:54:16 [D] 2>Sending   MsgContainer                             2025-08-11 21:54:15Z (svc)
+2025-08-12 00:54:16 [D]              → MsgsAck                               
+2025-08-12 00:54:16 [D]              → Auth_ImportBotAuthorization            #A178
+2025-08-12 00:54:16 [D] 2>Receiving RpcResult                                2025-08-11 21:54:15Z
+2025-08-12 00:54:16 [E]              → RpcError 303 USER_MIGRATE_4           #A178
+2025-08-12 00:54:16 [D] 2>Sending   MsgsAck                                  2025-08-11 21:54:15Z (svc)
+2025-08-12 00:54:16 [I] Connecting to 149.154.167.92:443...
+2025-08-12 00:54:16 [D] 4>Sending   ReqPqMulti...
+2025-08-12 00:54:16 [D] 4>Receiving ResPQ                                    2025-08-11 21:54:16Z clear
+2025-08-12 00:54:16 [I] Selected public key with fingerprint D09D1D85DE64FD85
+2025-08-12 00:54:16 [D] 4>Sending   ReqDHParams...
+2025-08-12 00:54:16 [D] 4>Receiving ServerDHParamsOk                         2025-08-11 21:54:16Z clear
+2025-08-12 00:54:16 [I] Verifying encryption key safety... (this should happen only once per DC)
+2025-08-12 00:54:16 [D] Time offset: -9493219 | Server: 21:54:16 UTC | Local: 21:54:16.9493219 UTC
+2025-08-12 00:54:16 [D] 4>Sending   SetClientDHParams...
+2025-08-12 00:54:17 [D] 4>Receiving DhGenOk                                  2025-08-11 21:54:18Z clear
+2025-08-12 00:54:17 [D] 4>Sending   InvokeWithLayer`1                        #18C0
+2025-08-12 00:54:17 [D] 4>Receiving MsgContainer                             2025-08-11 21:54:18Z (svc)
+2025-08-12 00:54:17 [D]              → NewSessionCreated                      2025-08-11 21:54:17Z  
+2025-08-12 00:54:17 [D]              → MsgsAck                                2025-08-11 21:54:17Z (svc) 
+2025-08-12 00:54:17 [D] 4>Receiving RpcResult                                2025-08-11 21:54:17Z
+2025-08-12 00:54:17 [D]              → Config                                #18C0
+2025-08-12 00:54:17 [I] Connected to DC 4... default_p2p_contacts, revoke_pm_inbox
+2025-08-12 00:54:17 [D] 4>Sending   MsgContainer                             2025-08-11 21:54:17Z (svc)
+2025-08-12 00:54:17 [D]              → MsgsAck                               
+2025-08-12 00:54:17 [D]              → Auth_ImportBotAuthorization            #6B66
+2025-08-12 00:54:17 [D] 4>Receiving RpcResult                                2025-08-11 21:54:17Z
+2025-08-12 00:54:17 [D]              → Auth_Authorization                    #6B66
+2025-08-12 00:54:18 [D] Connected as @justoxy_bot (7664665379) | LastUpdateId = 0 | 0 pending updates
+2025-08-12 00:54:18 [D] 4>Sending   MsgContainer                             2025-08-11 21:54:17Z (svc)
+2025-08-12 00:54:18 [D]              → MsgsAck                               
+2025-08-12 00:54:18 [D]              → Users_GetUsers                         #6382
+2025-08-12 00:54:18 [D] 4>Receiving RpcResult                                2025-08-11 21:54:17Z
+2025-08-12 00:54:18 [D]              → UserBase[]                            #6382
+2025-08-12 00:54:18 [D] 4>Sending   MsgContainer                             2025-08-11 21:54:18Z (svc)
+2025-08-12 00:54:18 [D]              → MsgsAck                               
+2025-08-12 00:54:18 [D]              → Updates_GetState                       #E54F
+2025-08-12 00:54:18 [D] 4>Receiving RpcResult                                2025-08-11 21:54:18Z
+2025-08-12 00:54:18 [D]              → Updates_State                         #E54F
+2025-08-12 00:54:18 [I] Got Updates_State 0->183, date=31/12/9999 23:59:59->11/08/2025 21:54:19, seq=0->1
+2025-08-12 00:54:20 [D] 4>Sending   MsgContainer                             2025-08-11 21:54:20Z (svc)
+2025-08-12 00:54:20 [D]              → MsgsAck                               
+2025-08-12 00:54:20 [D]              → GetFutureSalts                         #D5D5
+2025-08-12 00:54:20 [D] 4>Receiving FutureSalts                              2025-08-11 21:54:20Z (svc) 
+2025-08-12 00:54:22 [D] 4>Sending   GetFutureSalts                           #FF83
+2025-08-12 00:54:22 [D] 4>Receiving FutureSalts                              2025-08-11 21:54:22Z (svc) 
+2025-08-12 00:54:24 [D] 4>Receiving Updates                                  2025-08-11 21:54:24Z  
+2025-08-12 00:54:24 [D] (         0,    183+1->184   ) TL.UpdateNewMessage            applied | msgID=183
+2025-08-12 00:54:24 [D] 4>Sending   MsgContainer                             2025-08-11 21:54:24Z (svc)
+2025-08-12 00:54:24 [D]              → MsgsAck                               
+2025-08-12 00:54:24 [D]              → Messages_SendMessage                   #9E3D
+2025-08-12 00:54:24 [D] 4>Receiving RpcResult                                2025-08-11 21:54:24Z
+2025-08-12 00:54:24 [D]              → UpdateShortSentMessage                #9E3D
+2025-08-12 00:54:25 [D] (         0,    184+1->185   ) TL.UpdateNewMessage            applied | msgID=184
