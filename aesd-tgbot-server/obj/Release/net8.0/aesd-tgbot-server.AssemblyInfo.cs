@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("aesd-tgbot-server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2634ee6e5329c2d22994769e13e70adc3afce18d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d19a06725b732b9e2de2525b9fa27715979cb4d3")]
 [assembly: System.Reflection.AssemblyProductAttribute("aesd-tgbot-server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("aesd-tgbot-server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
