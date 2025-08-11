@@ -1,0 +1,3 @@
+[submodule "WTelegramBot"]
+	path = WTelegramBot
+	url = git@github.com:wiz0u/WTelegramBot.git
