@@ -5,10 +5,16 @@ using System.Text;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using System;
+using System.Net;
+using System.Net.Sockets;
 
 string token = string.Empty;
 int apiId = 0;
 string apiHash = string.Empty;
+
+string ipAddress = "loopback"; // Change this to your desired IP address
+int socketPort = 9000; // Change this to your desired port
 
 if (args.Length != 3)
 {
@@ -25,6 +31,31 @@ else
 	Console.WriteLine("API ID: " + apiId);
 	Console.WriteLine("API Hash: " + apiHash);
 }
+
+Socket socket = socketSetup(ipAddress, socketPort); // Setup the socket connection
+string receivedMessage = string.Empty; // Initialize the received message variable
+
+_ = Task.Run(async () =>
+{
+    while (true)
+    {
+        receivedMessage = await socketReceiveAsync(socket);
+        if (string.IsNullOrEmpty(receivedMessage))
+        {
+            Console.WriteLine("Server closed connection.");
+            break;
+        }
+        Console.WriteLine("Received: " + receivedMessage);
+    }
+});
+
+socketSend(socket, "Hello, Server!\n"); // Example usage of socketSend
+while (receivedMessage.Length == 0)
+{
+    ;
+}
+Console.WriteLine($"received socket string={receivedMessage}");
+socketClose(socket); // Close the socket connection
 
 StreamWriter WTelegramLogs = new StreamWriter("WTelegramBot.log", true, Encoding.UTF8) { AutoFlush = true };
 WTelegram.Helpers.Log = (lvl, str) => WTelegramLogs.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss} [{"TDIWE!"[lvl]}] {str}");
@@ -103,3 +134,110 @@ Task OnUpdate(WTelegram.Types.Update update)
     }
     return Task.CompletedTask;
 }
+
+Socket socketSetup(string ipAdress, int socketPort)
+{
+    bool result = true;
+    IPAddress address;
+    if (ipAdress == "loopback")
+    {
+        address = IPAddress.Loopback;
+    }
+    else
+    {
+        address = IPAddress.Parse(ipAdress);
+    }
+    // Create a TCP socket
+    Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+    IPEndPoint endPoint = new IPEndPoint(address, socketPort);
+    
+    try
+    {
+        socket.Connect(endPoint);
+        Console.WriteLine($"Socket bound to {endPoint}");
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Socket bind failed: {e.Message}");
+        result = false;
+    }
+    return socket;
+}
+
+bool socketClose(Socket socket)
+{
+    bool result = true;
+    try
+    {
+        socket.Shutdown(SocketShutdown.Both);
+        socket.Close();
+        Console.WriteLine("Socket closed successfully.");
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Failed to close socket: {e.Message}");
+        result = false;
+    }
+    return result;
+}
+
+
+bool socketSend(Socket socket, string message)
+{
+    bool result = true;
+
+    byte[] msg = Encoding.UTF8.GetBytes(message);
+    if (socket.Send(msg) > 0)
+    {
+        Console.WriteLine($"Sent message: {message}");
+    }
+    else
+    {
+        Console.WriteLine("Failed to send message.");
+        result = false;
+    }
+
+    return result;
+}
+
+static async Task<string> socketReceiveAsync(Socket socket)
+{
+    byte[] buffer = new byte[1024];
+    string text = String.Empty;
+
+    while (true)
+    {
+        int bytesReceived = await socket.ReceiveAsync(buffer, SocketFlags.None);
+
+        if (bytesReceived == 0)
+        {
+            // remote closed connection
+            Console.WriteLine("Connection closed by server.");
+            break;
+        }
+
+        text = Encoding.UTF8.GetString(buffer, 0, bytesReceived);
+        Console.WriteLine("Received: " + text);
+    }
+
+    return text;
+}
+
+
+bool socketReceive(Socket socket, out string text)
+{ 
+    bool result = true;
+
+    // Receive response
+    byte[] buffer = new byte[1024];
+    int bytesReceived = socket.Receive(buffer);
+    text = Encoding.UTF8.GetString(buffer, 0, bytesReceived);
+    Console.WriteLine("Server replied: " + text);
+
+    //listener.Bind(localEndPoint);
+    //listener.Listen(1);
+    //Console.WriteLine($"Server is listening on IP ${address} port ${SocketPort}...");
+
+    return result;
+}
+
