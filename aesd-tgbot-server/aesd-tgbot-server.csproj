@@ -56,12 +56,15 @@
     </Reference>
     <Reference Include="Telegram.Bot">
       <HintPath>dll\Telegram.Bot.dll</HintPath>
+      <Private>true</Private>
     </Reference>
     <Reference Include="WTelegramBot">
       <HintPath>dll\WTelegramBot.dll</HintPath>
+      <Private>true</Private>
     </Reference>
     <Reference Include="WTelegramClient">
       <HintPath>dll\WTelegramClient.dll</HintPath>
+      <Private>true</Private>
     </Reference>
   </ItemGroup>
 
