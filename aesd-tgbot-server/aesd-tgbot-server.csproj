@@ -9,61 +9,61 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="dll\**" />
-    <EmbeddedResource Remove="dll\**" />
-    <None Remove="dll\**" />
+    <Compile Remove="dll/**" />
+    <EmbeddedResource Remove="dll/**" />
+    <None Remove="dll/**" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Microsoft.Data.Sqlite">
-      <HintPath>dll\Microsoft.Data.Sqlite.dll</HintPath>
+      <HintPath>dll/Microsoft.Data.Sqlite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Configuration.Abstractions">
-      <HintPath>dll\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+      <HintPath>dll/Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Configuration.Binder">
-      <HintPath>dll\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+      <HintPath>dll/Microsoft.Extensions.Configuration.Binder.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <HintPath>dll\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <HintPath>dll/Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Options">
-      <HintPath>dll\Microsoft.Extensions.Options.dll</HintPath>
+      <HintPath>dll/Microsoft.Extensions.Options.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Options.ConfigurationExtensions">
-      <HintPath>dll\Microsoft.Extensions.Options.ConfigurationExtensions.dll</HintPath>
+      <HintPath>dll/Microsoft.Extensions.Options.ConfigurationExtensions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Primitives">
-      <HintPath>dll\Microsoft.Extensions.Primitives.dll</HintPath>
+      <HintPath>dll/Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="SQLitePCLRaw.batteries_v2">
-      <HintPath>dll\SQLitePCLRaw.batteries_v2.dll</HintPath>
+      <HintPath>dll/SQLitePCLRaw.batteries_v2.dll</HintPath>
     </Reference>
     <Reference Include="SQLitePCLRaw.core">
-      <HintPath>dll\SQLitePCLRaw.core.dll</HintPath>
+      <HintPath>dll/SQLitePCLRaw.core.dll</HintPath>
     </Reference>
     <Reference Include="SQLitePCLRaw.provider.e_sqlite3">
-      <HintPath>dll\SQLitePCLRaw.provider.e_sqlite3.dll</HintPath>
+      <HintPath>dll/SQLitePCLRaw.provider.e_sqlite3.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Pipelines">
-      <HintPath>dll\System.IO.Pipelines.dll</HintPath>
+      <HintPath>dll/System.IO.Pipelines.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.Encodings.Web">
-      <HintPath>dll\System.Text.Encodings.Web.dll</HintPath>
+      <HintPath>dll/System.Text.Encodings.Web.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.Json">
-      <HintPath>dll\System.Text.Json.dll</HintPath>
+      <HintPath>dll/System.Text.Json.dll</HintPath>
     </Reference>
     <Reference Include="Telegram.Bot">
-      <HintPath>dll\Telegram.Bot.dll</HintPath>
+      <HintPath>dll/Telegram.Bot.dll</HintPath>
       <Private>true</Private>
     </Reference>
     <Reference Include="WTelegramBot">
-      <HintPath>dll\WTelegramBot.dll</HintPath>
+      <HintPath>dll/WTelegramBot.dll</HintPath>
       <Private>true</Private>
     </Reference>
     <Reference Include="WTelegramClient">
-      <HintPath>dll\WTelegramClient.dll</HintPath>
+      <HintPath>dll/WTelegramClient.dll</HintPath>
       <Private>true</Private>
     </Reference>
   </ItemGroup>
