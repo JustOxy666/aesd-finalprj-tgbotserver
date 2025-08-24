@@ -50,6 +50,7 @@ if (!parseArgs(args))
     Environment.Exit(1);
 }
 
+// Will attempt to reconnect every 10 seconds for 30 times
 var socket = new socketСonnect(ipAddress, socketPort);
 var gnssapp = new gnssposget_app(socket);
 var tgbot = new tgbot_server(token, apiId, apiHash, gnssapp);

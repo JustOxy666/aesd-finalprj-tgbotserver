@@ -16,6 +16,8 @@ public class socketСonnect
 
     public socketСonnect(string ip, int port)
     {
+        int connectAttempts = 30;
+        int timeoutSeconds = 10;
         receiving = false;
         IPAddress address;
         // Initialize the socket connectionIPAddress address;
@@ -31,14 +33,21 @@ public class socketСonnect
         
         // Create a TCP socket
         IPEndPoint endPoint = new IPEndPoint(address, port);
-        try
+        while (connectAttempts > 0)
         {
-            socket.Connect(endPoint);
-            Console.WriteLine($"Socket bound to {endPoint}");
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine($"Socket bind failed: {e.Message}");
+            try
+            {
+                socket.Connect(endPoint);
+                Console.WriteLine($"Socket bound to {endPoint}");
+                break;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Socket bind failed: {e.Message}");
+                Console.WriteLine($"Waiting {timeoutSeconds} secods before new connect attempt...");
+                connectAttempts--;
+                Thread.Sleep(timeoutSeconds * 1000);
+            }
         }
 
         this.socket = socket;
