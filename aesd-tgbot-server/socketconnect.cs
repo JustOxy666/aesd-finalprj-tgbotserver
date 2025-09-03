@@ -55,7 +55,7 @@ public class socketСonnect
         messageQueue = new Queue<string>();
     }
 
-    private async Task receiveAsync(CancellationToken cancellationToken)
+    private async Task<bool> receiveAsync(CancellationToken cancellationToken)
     {
         byte[] buffer = new byte[512];
         string text = String.Empty;
@@ -70,7 +70,7 @@ public class socketСonnect
 
             Console.WriteLine($"Adding to Queue: {text}");
             messageQueue.Enqueue(text);
-            return;
+            return false;
         }
 
         foreach(string str in Encoding.UTF8.GetString(buffer, 0, bytesReceived).Split('\n'))
@@ -84,7 +84,7 @@ public class socketСonnect
             }
         }
 
-        return;
+        return true;
     }
 
     public CancellationTokenSource startReceiving()
@@ -107,7 +107,11 @@ public class socketСonnect
             {
                 while (!cts.Token.IsCancellationRequested)
                 {
-                    await receiveAsync(cts.Token);
+                    bool res = await receiveAsync(cts.Token);
+                    if (!res)
+                    {
+                        this.stopReceiving(cts);
+                    }
                 }
             });
         }

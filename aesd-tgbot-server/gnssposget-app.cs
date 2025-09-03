@@ -69,6 +69,13 @@ public class gnssposget_app
                     break;
                 case gnssposget_app_states.STATE_ABORT_REQUESTED:
                     Console.WriteLine("Application state = STATE_ABORT_REQUESTED");
+                    if (receivedMessage == "ABORTED")
+                    {
+                        receivedMessage = String.Empty;
+                        tgbot.sendMessage("GNSS measurement application aborted successfully.");
+                        state = gnssposget_app_states.STATE_DONE;
+                    }
+
                     // Clean up resources and prepare for shutdown
                     state = gnssposget_app_states.STATE_DONE;
                     break;
@@ -106,6 +113,8 @@ public class gnssposget_app
                     isRunning = false; // Stop the application
                     break;
             }
+
+            Thread.Sleep(500); // Small delay to prevent busy-waiting
         }
 
         socket.close(); // Close the socket connection when done
@@ -131,7 +140,7 @@ public class gnssposget_app
                 if (resp[1] == "WORKING")
                 {
                     tgbot.sendMessage("GNSS position obtained. Time to fly!");
-                    Console.WriteLine("Application state = STATE_WORKING. " +
+                    Console.WriteLine("Application state -> STATE_WORKING. " +
                                       $"Message: {resp[2]}");
 
                     // Start waiting for report
@@ -139,9 +148,9 @@ public class gnssposget_app
                 }
                 else if (resp[1] == "NO_SIGNAL")
                 {
-                    tgbot.sendMessage($"Could not get GNSS position within timeout of " +
-                                      $"{resp[2]} seconds");
-                    Console.WriteLine("Application state = STATE_DONE" +
+                    tgbot.sendMessage($"Could not get GNSS position after timeout of " +
+                                      $"{resp[2].TrimEnd('\n')} seconds");
+                    Console.WriteLine("Application state = STATE_DONE. " +
                                       $"Message: {resp[2]}");
                     state = gnssposget_app_states.STATE_DONE;
                 }
@@ -164,9 +173,9 @@ public class gnssposget_app
         {
             string[] resp = receivedMessage.Split('^');
             // Expected format: STATE_WORKING^NEW_STATUS^MESSAGE
-            // e.g. "STATE_WORKING^RUNNING_STATUS^1%3.53" -- 0-30kmph = 3.53s
-            // e.g. "STATE_WORKING^RUNNING_STATUS^2%6.21" -- 0-60kmph = 6.21s
-            // e.g. "STATE_WORKING^RUNNING_TIMEOUT^2%30"  -- timed out waiting for 2(0-100) after 30 seconds
+            // e.g. "STATE_WORKING^RUNNING_STATUS^1#3.53" -- 0-30kmph = 3.53s
+            // e.g. "STATE_WORKING^RUNNING_STATUS^2#6.21" -- 0-60kmph = 6.21s
+            // e.g. "STATE_WORKING^RUNNING_TIMEOUT^2#30"  -- timed out waiting for 2(0-100) after 30 seconds
             // e.g. "STATE_WORKING^RUNNING_ERROR^Signal lost" -- Error: signal lost
             // e.g. "STATE_WORKING^RUNNING_DONE^Finished" -- Measurement done successfully
             if (resp.Length == 3)
@@ -182,7 +191,7 @@ public class gnssposget_app
                     if (timeoutInfo.Length > 1)
                     {
                         info += $" {getAccelerationPoint(timeoutInfo[0])} after " +
-                               $"{timeoutInfo[1]} seconds.";
+                               $"{timeoutInfo[1].TrimEnd('\n')} seconds.";
                     }
 
                     tgbot.sendMessage(info);
@@ -258,6 +267,7 @@ public class gnssposget_app
         tgbot.sendMessage(reportText);
         Console.WriteLine("Sending final report to Telegram bot:\n" +
                           $"{reportText}");
+        report.Clear();
     }
 
     public void requestStatus()
@@ -274,24 +284,8 @@ public class gnssposget_app
         if ((state == gnssposget_app_states.STATE_WORKING) ||
             (state == gnssposget_app_states.STATE_START_REQUESTED))
         {
-            abortRequested = true;
             socket.send("REQUEST_ABORT");
             state = gnssposget_app_states.STATE_ABORT_REQUESTED;
-
-            while (abortRequested)
-            {
-                if (socket.messageQueue.Count > 0)
-                {
-                    string receivedMessage = socket.messageQueue.Dequeue();
-                    if (receivedMessage == "ABORTED")
-                    {
-                        receivedMessage = String.Empty;
-                        tgbot.sendMessage("GNSS measurement application aborted successfully.");
-                        state = gnssposget_app_states.STATE_DONE;
-                        abortRequested = false;
-                    }
-                }
-            }
         }
     }
 }
