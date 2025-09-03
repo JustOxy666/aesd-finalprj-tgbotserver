@@ -260,7 +260,7 @@ public class gnssposget_app
             for(int i = 0; i < report.Count; i++)
             {
                 string[] temp = report[i].Split('#');
-                reportText += $"{getAccelerationPoint(temp[0])} --- {temp[1]} seconds\n";
+                reportText += $"{getAccelerationPoint(temp[0])} --- {temp[1].TrimEnd('\n')} seconds\n";
             }
         }
 

@@ -19,6 +19,7 @@ public class tgbot_server
                               "Available commands:\n" +
                              $"Send \"{cmdStart}\" in this chat to start GNSS measurement application.\n" +
                              $"Send \"{cmdStatus}\" to get GNSS signal status while application is running.\n" +
+                             $"Send \"{cmdAbort}\" to abort running measurement.\n" +
                              $"Send \"{cmdHelp}\" to see this message.";
     public tgbot_server(string token, int apiId, string apiHash, gnssposget_app gnssapp)
     {
